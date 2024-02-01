@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <title>Floripa Mais Tec</title>
+</head>
+
+<body>
+    <div id="box_cadastro">
+        <form id="form-cadastro" onsubmit="submitCadastro(event)">
+            <input class="custom_input" type="text" placeholder="Seu nome">
+            <input id="input_email" class="custom_input" type="email" placeholder="Seu e-mail">
+
+            <div id="marca_carro">
+                <p>Qual a marca do seu carro?</p>
+
+                <input type="radio" id="vw" name="marca" value="vw">
+                <label for="vw">VW</label>
+
+                <input type="radio" id="ford" name="marca" value="ford">
+                <label for="ford">Ford</label>
+
+                <input type="radio" id="fiat" name="marca" value="fiat">
+                <label for="fiat">Fiat</label>
+            </div>
+
+            <div id="ano_carro">
+                <p>Qual ao ano de fabricação?</p>
+
+                <input type="radio" id="ano1" name="ano" value="1990-2000">
+                <label for="ano1">1990-2000</label>
+
+                <input type="radio" id="ano2" name="ano" value="2000-2010">
+                <label for="ano2">2000-2010</label>
+
+                <input type="radio" id="ano3" name="ano" value="2010-2020">
+                <label for="ano3">2010-2020</label>
+            </div>
+
+            <div>
+                <p class="pergunta-text">Quais suas linguagens favoritas?</p>
+
+                <input type="checkbox" id="js" name="linguagem" value="Javascript">
+                <label for="js">Javascript</label>
+
+                <input type="checkbox" id="c" name="linguagem" value="C#">
+                <label for="c">C#</label>
+
+                <input type="checkbox" id="lua" name="linguagem" value="Lua">
+                <label for="lua">Lua</label>
+            </div>
+
+            <div>
+                <p class="pergunta-text">Por onde encontrou este curso?</p>
+                <select name="onde_encontrou">
+                    <option value="google">Google</option>
+                    <option value="linkedin">Linkedin</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="" selected>Não desejo responder.</option>
+                </select>
+            </div>
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+    </div>
+
+    <script>
+
+        function submitCadastro(event) {
+            event.preventDefault();
+            const form = document.getElementById('form-cadastro')
+            console.log(form['onde_encontrou'].value)
+            
+
+            var linguagensSelecionadas = [];
+            var checkboxes = document.querySelectorAll('input[name="linguagem"]:checked');
+
+            checkboxes.forEach(function (checkbox) {
+                linguagensSelecionadas.push(checkbox.value);
+            });
+
+            console.log('Linguagens selecionadas:', linguagensSelecionadas);
+        }
+    </script>
+</body>
+
+</html>

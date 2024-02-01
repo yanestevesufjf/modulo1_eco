@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(217, 143, 121);
+    width: 300px;
+    margin: 12px;
+    padding: 20px;
+    border: 5px solid black;
+    
+    overflow: hidden;
+}
+
+.pergunta-text {
+    font-weight: 600;
+}
+
+.custom_input {
+    height: 30px;
+}
+
+
+input[type=checkbox] {
+    width: 30px;
+}
+
+.w-300 {
+    width: 300px !important;
+}
+
+.quadro-azul {
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+}
+
+.btn-whatsapp {
+    width: 30px;
+    height: 30px;
+    background-color: green;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}

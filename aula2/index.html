@@ -1,0 +1,96 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./assets/styles/styles.css">
+</head>
+
+<body style="display: flex; justify-content: center;">
+
+    <form id="meuForm">
+        <input name="nome" type="text" placeholder="Nome" class="custom_input">
+        <input name="email" type="email" id="input_email" placeholder="Digite seu email" class="custom_input">
+        <input name="endereco" type="text" placeholder="Endereço" class="custom_input w-300">
+
+        <div>
+            <p class="pergunta-text">Quais suas linguagens favoritas?</p>
+
+            <input type="checkbox" id="js" name="linguagens_fav" value="javascript" onchange="novaSelecao(event)">
+            <label for="js">Javascript</label>
+
+            <input type="checkbox" id="c" name="linguagens_fav" value="c#" onchange="novaSelecao(event)">
+            <label for="c">C#</label>
+
+            <input type="checkbox" id="lua" name="linguagens_fav" value="lua" onchange="novaSelecao(event)">
+            <label for="lua">Lua</label>
+        </div>
+
+        <div>
+            <p class="pergunta-text">Por onde encontrou este curso?</p>
+            <select name="onde_encontrou">
+                <option value="google">Google</option>
+                <option value="linkedin">Linkedin</option>
+                <option value="instagram">Instagram</option>
+                <option value="" selected>Não desejo responder.</option>
+            </select>
+        </div>
+
+        <button onclick="analisarInputs(event)">Analisar inputs</button>
+    </form>
+
+
+    <div style="position: relative;" class="quadro-azul">
+        <div class="btn-whatsapp"></div>
+    </div>
+    
+
+    <script>
+        console.log('AULA 2')
+        let linguagens = []
+
+        function novaSelecao(event) {
+            if (linguagens.find(item => item === event.target.value)) {
+                // remove o item
+                return;
+            }
+
+            console.log('linguagens selecionadas')
+            linguagens.push(event.target.value)
+            console.log(linguagens)
+        }
+
+        function analisarInputs(event) {
+            event.preventDefault()
+            const form = document.getElementById('meuForm')
+            const nomePessoa = form['nome'].value
+
+            // const checkboxes2 = form['linguagens_fav']
+            // console.log(checkboxes2)
+
+
+            // Capturando os checkbox marcados
+            var linguagensFavoritas = []
+            const checkboxes = document.queerySelctorAll('input[name="linguagens_fav"]:checked')
+
+            checkboxes.forEach(function (checkbox) {
+                linguagensFavoritas.push(checkbox.value)
+            })
+            console.log('As linguagens selecionadas foram:')
+            console.log(linguagensFavoritas)
+
+
+            // const email = document.getElementById('input_email')
+            // const email = document.querySelector('#input_email')      
+
+            // console.log(email.value)
+
+            // const elements = document.querySelectorAll('.custom_input')
+            // // elements => Array [0, 1, 2] => elements[1].value
+            // console.log('Nome: ', elements[0].value)
+            // console.log('Email: ', elements[1].value)
+            // console.log('Endereço: ', elements[2].value)
+
+        }
+    </script>
+</body>
+
+</html>
